@@ -1,27 +1,26 @@
 import { FlatList, StyleSheet, View } from "react-native";
-import { List } from "react-native-paper";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useCategoryStore, useTransactionStore } from "../../store";
+import TransactionRecord from "./components/TransactionRecord";
+import { Transaction } from "../../type";
 
 function Home() {
     const safeAreaInsets = useSafeAreaInsets();
 
-    const list = [{
-        id: 1,
-        category: 'drink',
-        amount: 100,
-    }]
+    const { transactions, deleteTransaction } = useTransactionStore();
+
+    const { categories } = useCategoryStore();
+
+    const handleDetail = (record: Transaction) => {
+        console.log(record);
+    }
+
     return (
         <View style={[styles.container, { paddingTop: safeAreaInsets.top }]}>
             <FlatList
-                data={list}
+                data={transactions}
                 keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => (
-                    <List.Item
-                        title={item.category}
-                        description={item.amount.toString()}
-                        left={() => <List.Icon icon="folder" />}
-                    />
-                )}
+                renderItem={({ item }) => <TransactionRecord record={item} onDelete={deleteTransaction} onDetail={handleDetail} categories={categories} />}
             />
         </View>
     );
@@ -32,10 +31,5 @@ export default Home;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
-    item: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        padding: 10,
     },
 })
