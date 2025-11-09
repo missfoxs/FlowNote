@@ -39,40 +39,7 @@ interface TransactionStore {
 }
 
 const useTransactionStore = create<TransactionStore>((set) => ({
-    transactions: [
-        {
-            id: 1,
-            categoryId: '1',
-            amount: 100,
-            mode: 'expense',
-            date: dayjs(),
-            remark: '购买了一个餐厅',
-        },
-        {
-            id: 2,
-            categoryId: '2',
-            amount: 50,
-            mode: 'expense',
-            date: dayjs(),
-            remark: '购买了一个衬衫',
-        },
-        {
-            id: 3,
-            categoryId: '3',
-            amount: 200,
-            mode: 'expense',
-            date: dayjs(),
-            remark: '购买了一个房子',
-        },
-        {
-            id: 4,
-            categoryId: '4',
-            amount: 100,
-            mode: 'expense',
-            date: dayjs(),
-            remark: '购买了一个出租车',
-        },
-    ],
+    transactions: [],
     addTransaction: (transaction: Partial<Transaction>) => set((state) => ({
         transactions: [...state.transactions, {
             amount: transaction.amount ?? 0,

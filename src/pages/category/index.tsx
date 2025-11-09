@@ -4,6 +4,8 @@ import { IconButton, Surface, Drawer } from "react-native-paper";
 import { Category } from "../../type";
 import CustomKeyboard from "../../components/CustomKeyboard";
 import { useRef, useState } from "react";
+import { Router_Name } from "../../routes";
+import { useNavigation } from "@react-navigation/native";
 
 function CategoryCom() {
     const currentCategory = useRef<Category | null>(null);
@@ -13,6 +15,8 @@ function CategoryCom() {
     const { addTransaction } = useTransactionStore();
 
     const [showKeyboard, setShowKeyboard] = useState(false);
+
+    const { navigate } = useNavigation();
 
     const handlePress = (item: Category) => {
         currentCategory.current = item;
@@ -32,10 +36,12 @@ function CategoryCom() {
         });
 
         currentCategory.current = null;
+
+        navigate(Router_Name.Home as never);
     }
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={styles.categoryContainer}>
             <Surface mode="flat" style={styles.surface}>
                 {categories.map((item) => (
                     <View key={item.id} style={styles.categoryItem}>
@@ -58,6 +64,9 @@ function CategoryCom() {
 export default CategoryCom;
 
 const styles = StyleSheet.create({
+    categoryContainer: {
+        flex: 1,
+    },
     surface: {
         flex: 1,
         flexDirection: 'row',
@@ -82,12 +91,6 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         backgroundColor: 'white',
-        borderTopWidth: 1,
-        borderTopColor: '#e0e0e0',
         elevation: 8,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.2,
-        shadowRadius: 6,
     },
 })
