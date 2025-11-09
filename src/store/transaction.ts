@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { Transaction, Category } from "../type";
 import dayjs from "dayjs";
+import { persist, createJSONStorage } from 'zustand/middleware';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const defaultCategoryList: Category[] = [
@@ -38,21 +40,33 @@ interface TransactionStore {
     // updateTransaction: (id: number, transaction: Transaction) => void;
 }
 
-const useTransactionStore = create<TransactionStore>((set) => ({
-    transactions: [],
-    addTransaction: (transaction: Partial<Transaction>) => set((state) => ({
-        transactions: [...state.transactions, {
-            amount: transaction.amount ?? 0,
-            mode: transaction.mode ?? 'expense',
-            date: transaction.date ?? dayjs(),
-            remark: transaction.remark ?? '',
-            id: state.transactions.length + 1,
-            categoryId: transaction.categoryId ?? defaultCategoryList[0].id,
-        }],
-    })),
-    deleteTransaction: (record: Transaction) => set((state) => ({
-        transactions: state.transactions.filter((item) => item.id !== record.id),
-    })),
-}))
+const useTransactionStore = create<TransactionStore>()(
+    // @ts-ignore
+    persist(
+        (set, get) => ({
+            transactions: [],
+            addTransaction: (transaction: Partial<Transaction>) => {
+                const newTransaction = {
+                    amount: transaction.amount ?? 0,
+                    mode: transaction.mode ?? 'expense',
+                    date: transaction.date ?? dayjs(),
+                    remark: transaction.remark ?? '',
+                    id: get().transactions.length + 1,
+                    categoryId: transaction.categoryId ?? defaultCategoryList[0].id,
+                }
+                set(state => ({
+                    transactions: [...state.transactions, newTransaction]
+                }))
+            },
+            deleteTransaction: (record: Transaction) => set(state => ({
+                transactions: state.transactions.filter((item) => item.id !== record.id),
+            })),
+        }),
+        {
+            name: 'transaction-storage',
+            storage: createJSONStorage(() => AsyncStorage),
+        },
+    )
+)
 
 export { useTransactionStore };
