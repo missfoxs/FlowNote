@@ -1,0 +1,93 @@
+import { StyleSheet, Text, View } from "react-native";
+import { useCategoryStore, useTransactionStore } from "../../store";
+import { IconButton, Surface, Drawer } from "react-native-paper";
+import { Category } from "../../type";
+import CustomKeyboard from "../../components/CustomKeyboard";
+import { useRef, useState } from "react";
+
+function CategoryCom() {
+    const currentCategory = useRef<Category | null>(null);
+
+    const { categories } = useCategoryStore();
+
+    const { addTransaction } = useTransactionStore();
+
+    const [showKeyboard, setShowKeyboard] = useState(false);
+
+    const handlePress = (item: Category) => {
+        currentCategory.current = item;
+
+        setShowKeyboard(true);
+    }
+
+    const handleCloseKeyboard = (payload: { amount: number; description: string }) => {
+        setShowKeyboard(false);
+
+        if (!currentCategory.current) return;
+
+        addTransaction({
+            amount: payload.amount,
+            categoryId: currentCategory.current?.id || '',
+            remark: payload.description,
+        });
+
+        currentCategory.current = null;
+    }
+
+    return (
+        <View style={{ flex: 1 }}>
+            <Surface mode="flat" style={styles.surface}>
+                {categories.map((item) => (
+                    <View key={item.id} style={styles.categoryItem}>
+                        <IconButton icon={item.icon} size={40} containerColor={item.color} iconColor="white" mode="contained-tonal" onPress={() => handlePress(item)} />
+                        <Text style={styles.categoryItemText}>{item.name}</Text>
+                    </View>
+                ))}
+            </Surface>
+
+            {/* 使用Drawer的底部抽屉效果 */}
+            {showKeyboard && (
+                <Drawer.Section style={styles.drawerContainer}>
+                    <CustomKeyboard onClose={handleCloseKeyboard} />
+                </Drawer.Section>
+            )}
+        </View>
+    );
+}
+
+export default CategoryCom;
+
+const styles = StyleSheet.create({
+    surface: {
+        flex: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    },
+    categoryItem: {
+        width: '25%', // 占据1/4宽度
+        aspectRatio: 1, // 保持正方形
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 8,
+    },
+    categoryItemText: {
+        fontSize: 14,
+        marginTop: 4,
+        textAlign: 'center',
+    },
+    drawerContainer: {
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: 'white',
+        borderTopWidth: 1,
+        borderTopColor: '#e0e0e0',
+        elevation: 8,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: -3 },
+        shadowOpacity: 0.2,
+        shadowRadius: 6,
+    },
+})

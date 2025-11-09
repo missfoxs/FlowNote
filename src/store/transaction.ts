@@ -33,7 +33,7 @@ const defaultCategoryList: Category[] = [
 
 interface TransactionStore {
     transactions: Transaction[];
-    // addTransaction: (transaction: Transaction) => void;
+    addTransaction: (transaction: Partial<Transaction>) => void;
     deleteTransaction: (record: Transaction) => void;
     // updateTransaction: (id: number, transaction: Transaction) => void;
 }
@@ -73,7 +73,17 @@ const useTransactionStore = create<TransactionStore>((set) => ({
             remark: '购买了一个出租车',
         },
     ],
-    deleteTransaction: (record) => set((state) => ({
+    addTransaction: (transaction: Partial<Transaction>) => set((state) => ({
+        transactions: [...state.transactions, {
+            amount: transaction.amount ?? 0,
+            mode: transaction.mode ?? 'expense',
+            date: transaction.date ?? dayjs(),
+            remark: transaction.remark ?? '',
+            id: state.transactions.length + 1,
+            categoryId: transaction.categoryId ?? defaultCategoryList[0].id,
+        }],
+    })),
+    deleteTransaction: (record: Transaction) => set((state) => ({
         transactions: state.transactions.filter((item) => item.id !== record.id),
     })),
 }))

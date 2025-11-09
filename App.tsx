@@ -11,6 +11,11 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import Home from './src/pages/home';
+import Category from './src/pages/category';
+
+import React from 'react';
+import { FAB } from 'react-native-paper';
+import FabPlus from './src/components/FabPlus';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -28,7 +33,9 @@ function AppContent() {
 
   return (
     <View style={[styles.container, { paddingTop: safeAreaInsets.top }]}>
-      <Home />
+      {/* <Home /> */}
+      <Category />
+      {/* <FabPlus onPress={() => console.log('press fab plus')} /> */}
     </View>
   );
 }
