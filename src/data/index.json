@@ -1,0 +1,130 @@
+{
+    "categories": [
+        {
+            "id": "1",
+            "name": "就餐",
+            "icon": "silverware",
+            "color": "#FF8A65"
+        },
+        {
+            "id": "2",
+            "name": "食材",
+            "icon": "basket",
+            "color": "#FFD54F"
+        },
+        {
+            "id": "3",
+            "name": "零食",
+            "icon": "ice-cream",
+            "color": "#F48FB1"
+        },
+        {
+            "id": "4",
+            "name": "酒饮",
+            "icon": "coffee",
+            "color": "#CE93D8"
+        },
+        {
+            "id": "22",
+            "name": "水果",
+            "icon": "fruit-grapes",
+            "color": "#81C784"
+        },
+        {
+            "id": "13",
+            "name": "服装",
+            "icon": "tshirt-crew-outline",
+            "color": "#64B5F6"
+        },
+        {
+            "id": "11",
+            "name": "住房",
+            "icon": "home",
+            "color": "#90A4AE"
+        },
+        {
+            "id": "19",
+            "name": "酒店",
+            "icon": "bed",
+            "color": "#7986CB"
+        },
+        {
+            "id": "7",
+            "name": "公交",
+            "icon": "bus",
+            "color": "#4DB6AC"
+        },
+        {
+            "id": "20",
+            "name": "车相关",
+            "icon": "car",
+            "color": "#4DD0E1"
+        },
+        {
+            "id": "25",
+            "name": "路费",
+            "icon": "road",
+            "color": "#4DD0E1"
+        },
+        {
+            "id": "21",
+            "name": "油费",
+            "icon": "gas-station",
+            "color": "#FFB300"
+        },
+        {
+            "id": "5",
+            "name": "日用品",
+            "icon": "microwave",
+            "color": "#AED581"
+        },
+        {
+            "id": "23",
+            "name": "数码",
+            "icon": "monitor",
+            "color": "#90CAF9"
+        },
+        {
+            "id": "8",
+            "name": "娱乐",
+            "icon": "gamepad-variant",
+            "color": "#BA68C8"
+        },
+        {
+            "id": "9",
+            "name": "医疗",
+            "icon": "medical-bag",
+            "color": "#E57373"
+        },
+        {
+            "id": "10",
+            "name": "教育",
+            "icon": "school",
+            "color": "#4FC3F7"
+        },
+        {
+            "id": "12",
+            "name": "通讯",
+            "icon": "message-processing",
+            "color": "#42A5F5"
+        },
+        {
+            "id": "14",
+            "name": "运动",
+            "icon": "dumbbell",
+            "color": "#66BB6A"
+        },
+        {
+            "id": "15",
+            "name": "旅行",
+            "icon": "airplane-takeoff",
+            "color": "#9575CD"
+        },
+        {
+            "id": "24",
+            "name": "礼金",
+            "icon": "gift",
+            "color": "#FF8A80"
+        }
+    ]
+}
