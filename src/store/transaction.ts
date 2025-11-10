@@ -36,6 +36,7 @@ const defaultCategoryList: Category[] = [
 interface TransactionStore {
     transactions: Transaction[];
     addTransaction: (transaction: Partial<Transaction>) => void;
+    addTransactionBatch: (transactions: Partial<Transaction>[]) => void;
     deleteTransaction: (record: Transaction) => void;
     // updateTransaction: (id: number, transaction: Transaction) => void;
 }
@@ -51,7 +52,7 @@ const useTransactionStore = create<TransactionStore>()(
                     mode: transaction.mode ?? 'expense',
                     date: transaction.date ?? dayjs(),
                     remark: transaction.remark ?? '',
-                    id: get().transactions.length + 1,
+                    id: String(get().transactions.length + 1),
                     categoryId: transaction.categoryId ?? defaultCategoryList[0].id,
                 }
                 set(state => ({
@@ -60,6 +61,17 @@ const useTransactionStore = create<TransactionStore>()(
             },
             deleteTransaction: (record: Transaction) => set(state => ({
                 transactions: state.transactions.filter((item) => item.id !== record.id),
+            })),
+            addTransactionBatch: (transactions: Partial<Transaction>[]) => set(state => ({
+                transactions: [...state.transactions, ...transactions.map((item) => ({
+                    ...item,
+                    id: String(state.transactions.length + 1),
+                    categoryId: item.categoryId ?? defaultCategoryList[0].id,
+                    amount: item.amount ?? 0,
+                    mode: item.mode ?? 'expense',
+                    date: item.date ?? dayjs(),
+                    remark: item.remark ?? '',
+                }))],
             })),
         }),
         {

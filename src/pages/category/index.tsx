@@ -25,9 +25,11 @@ function CategoryCom() {
     }
 
     const handleCloseKeyboard = (payload: { amount: number; description: string }) => {
-        setShowKeyboard(false);
+        if (payload.amount <= 0) return;
 
         if (!currentCategory.current) return;
+
+        setShowKeyboard(false);
 
         addTransaction({
             amount: payload.amount,
@@ -45,7 +47,7 @@ function CategoryCom() {
             <Surface mode="flat" style={styles.surface}>
                 {categories.map((item) => (
                     <View key={item.id} style={styles.categoryItem}>
-                        <IconButton icon={item.icon} size={40} containerColor={item.color} iconColor="white" mode="contained-tonal" onPress={() => handlePress(item)} />
+                        <IconButton icon={item.icon} size={35} containerColor={item.color} iconColor="white" mode="contained-tonal" onPress={() => handlePress(item)} />
                         <Text style={styles.categoryItemText}>{item.name}</Text>
                     </View>
                 ))}

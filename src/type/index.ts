@@ -10,7 +10,7 @@ export type Category = {
 export type TransactionMode = 'income' | 'expense';
 
 export type Transaction = {
-    id: number;
+    id: string;
     categoryId: Category['id'];
     amount: number;
     mode: TransactionMode;

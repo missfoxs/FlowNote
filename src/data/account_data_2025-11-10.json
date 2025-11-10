@@ -1,0 +1,1358 @@
+{
+  "transactions": [
+    {
+      "amount": 16,
+      "description": "前导线",
+      "category": "娱乐",
+      "type": "expense",
+      "date": "2025-11-10T06:08:09.543Z",
+      "icon": "game-controller",
+      "id": "1762754889544"
+    },
+    {
+      "amount": 34,
+      "description": "路亚饵",
+      "category": "娱乐",
+      "type": "expense",
+      "date": "2025-11-10T05:47:04.134Z",
+      "icon": "game-controller",
+      "id": "1762753624134"
+    },
+    {
+      "amount": 25,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-11-09T13:04:33.445Z",
+      "icon": "restaurant",
+      "id": "1762693473445"
+    },
+    {
+      "amount": 15,
+      "description": "娱乐",
+      "category": "娱乐",
+      "type": "expense",
+      "date": "2025-11-09T06:07:52.616Z",
+      "icon": "game-controller",
+      "id": "1762668472616"
+    },
+    {
+      "amount": 35,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-11-09T02:42:50.972Z",
+      "icon": "restaurant",
+      "id": "1762656170972"
+    },
+    {
+      "amount": 35,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-11-09T02:42:49.383Z",
+      "icon": "restaurant",
+      "id": "1762656169383"
+    },
+    {
+      "amount": 6,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-11-08T17:42:49.227Z",
+      "icon": "bus",
+      "id": "1762623769227"
+    },
+    {
+      "amount": 4,
+      "description": "车相关",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-11-08T11:42:50.997Z",
+      "icon": "car",
+      "id": "1762602170997"
+    },
+    {
+      "amount": 8,
+      "description": "零食",
+      "category": "零食",
+      "type": "expense",
+      "date": "2025-11-08T03:11:13.618Z",
+      "icon": "ice-cream",
+      "id": "1762571473618"
+    },
+    {
+      "amount": 50,
+      "description": "车相关",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-11-08T02:39:36.898Z",
+      "icon": "car",
+      "id": "1762569576898"
+    },
+    {
+      "amount": 2,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-11-08T02:39:32.171Z",
+      "icon": "bus",
+      "id": "1762569572171"
+    },
+    {
+      "amount": 133,
+      "description": "车相关",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-11-08T01:46:02.862Z",
+      "icon": "car",
+      "id": "1762566362862"
+    },
+    {
+      "amount": 10,
+      "description": "食材",
+      "category": "食材",
+      "type": "expense",
+      "date": "2025-11-07T15:27:42.128Z",
+      "icon": "basket",
+      "id": "1762529262128"
+    },
+    {
+      "amount": 5,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-11-07T01:38:09.534Z",
+      "icon": "restaurant",
+      "id": "1762479489534"
+    },
+    {
+      "amount": 3.5,
+      "description": "零食",
+      "category": "零食",
+      "type": "expense",
+      "date": "2025-11-05T02:30:44.621Z",
+      "icon": "ice-cream",
+      "id": "1762309844621"
+    },
+    {
+      "amount": 40,
+      "description": "通讯",
+      "category": "通讯",
+      "type": "expense",
+      "date": "2025-11-04T10:04:41.053Z",
+      "icon": "chatbubbles",
+      "id": "1762250681053"
+    },
+    {
+      "amount": 52,
+      "description": "通讯",
+      "category": "通讯",
+      "type": "expense",
+      "date": "2025-11-04T10:04:35.273Z",
+      "icon": "chatbubbles",
+      "id": "1762250675273"
+    },
+    {
+      "amount": 3,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-11-03T13:27:38.130Z",
+      "icon": "bus",
+      "id": "1762176458130"
+    },
+    {
+      "amount": 12,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-11-03T13:12:33.910Z",
+      "icon": "restaurant",
+      "id": "1762175553910"
+    },
+    {
+      "amount": 16,
+      "description": "酒饮",
+      "category": "酒饮",
+      "type": "expense",
+      "date": "2025-11-02T14:23:37.898Z",
+      "icon": "wine",
+      "id": "1762093417898"
+    },
+    {
+      "amount": 260,
+      "description": "油费",
+      "category": "油费",
+      "type": "expense",
+      "date": "2025-11-02T14:14:19.950Z",
+      "icon": "speedometer",
+      "id": "1762092859950"
+    },
+    {
+      "amount": 6,
+      "description": "酒饮",
+      "category": "酒饮",
+      "type": "expense",
+      "date": "2025-11-02T10:59:08.286Z",
+      "icon": "wine",
+      "id": "1762081148286"
+    },
+    {
+      "amount": 187,
+      "description": "车相关",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-11-02T04:48:54.141Z",
+      "icon": "car",
+      "id": "1762058934141"
+    },
+    {
+      "amount": 17,
+      "description": "车相关",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-11-02T04:48:46.623Z",
+      "icon": "car",
+      "id": "1762058926623"
+    },
+    {
+      "amount": 40,
+      "description": "酒饮",
+      "category": "酒饮",
+      "type": "expense",
+      "date": "2025-11-02T04:48:38.835Z",
+      "icon": "wine",
+      "id": "1762058918835"
+    },
+    {
+      "amount": 2220.5,
+      "description": "住房",
+      "category": "住房",
+      "type": "expense",
+      "date": "2025-11-01T17:02:21.321Z",
+      "icon": "home",
+      "id": "1762016541321"
+    },
+    {
+      "amount": 8,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-11-01T14:20:40.219Z",
+      "icon": "restaurant",
+      "id": "1762006840219"
+    },
+    {
+      "amount": 8,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-11-01T00:30:58.529Z",
+      "icon": "bus",
+      "id": "1761957058529"
+    },
+    {
+      "amount": 2.5,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-31T14:32:41.055Z",
+      "icon": "bus",
+      "id": "1761921161055"
+    },
+    {
+      "amount": 4.5,
+      "description": "酒饮",
+      "category": "酒饮",
+      "type": "expense",
+      "date": "2025-10-31T09:49:17.438Z",
+      "icon": "wine",
+      "id": "1761904157438"
+    },
+    {
+      "amount": 4.5,
+      "description": "酒饮",
+      "category": "酒饮",
+      "type": "expense",
+      "date": "2025-10-31T09:49:15.080Z",
+      "icon": "wine",
+      "id": "1761904155080"
+    },
+    {
+      "amount": 26,
+      "description": "洗面奶",
+      "category": "日用品",
+      "type": "expense",
+      "date": "2025-10-31T05:44:36.993Z",
+      "icon": "bag",
+      "id": "1761889476993"
+    },
+    {
+      "amount": 18,
+      "description": "水杯架",
+      "category": "日用品",
+      "type": "expense",
+      "date": "2025-10-31T05:44:23.402Z",
+      "icon": "bag",
+      "id": "1761889463402"
+    },
+    {
+      "amount": 26,
+      "description": "车锁",
+      "category": "日用品",
+      "type": "expense",
+      "date": "2025-10-31T05:43:48.826Z",
+      "icon": "bag",
+      "id": "1761889428826"
+    },
+    {
+      "amount": 36,
+      "description": "手机支架",
+      "category": "日用品",
+      "type": "expense",
+      "date": "2025-10-31T05:43:39.564Z",
+      "icon": "bag",
+      "id": "1761889419564"
+    },
+    {
+      "amount": 999,
+      "description": "山地车",
+      "category": "日用品",
+      "type": "expense",
+      "date": "2025-10-31T01:17:23.163Z",
+      "icon": "bag",
+      "id": "1761873443163"
+    },
+    {
+      "amount": 8,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-31T01:16:53.759Z",
+      "icon": "bus",
+      "id": "1761873413759"
+    },
+    {
+      "amount": 2.5,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-29T11:42:21.758Z",
+      "icon": "bus",
+      "id": "1761738141758"
+    },
+    {
+      "amount": 6,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-29T01:53:53.558Z",
+      "icon": "restaurant",
+      "id": "1761702833558"
+    },
+    {
+      "amount": 216,
+      "description": "鱼竿",
+      "category": "娱乐",
+      "type": "expense",
+      "date": "2025-10-28T12:22:55.709Z",
+      "icon": "game-controller",
+      "id": "1761654175709"
+    },
+    {
+      "amount": 28,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-28T11:00:18.972Z",
+      "icon": "restaurant",
+      "id": "1761649218972"
+    },
+    {
+      "amount": 5,
+      "description": "酒饮",
+      "category": "酒饮",
+      "type": "expense",
+      "date": "2025-10-27T02:37:25.435Z",
+      "icon": "wine",
+      "id": "1761532645435"
+    },
+    {
+      "amount": 29,
+      "description": "洗衣液",
+      "category": "日用品",
+      "type": "expense",
+      "date": "2025-10-26T07:13:09.264Z",
+      "icon": "bag",
+      "id": "1761462789264"
+    },
+    {
+      "amount": 144,
+      "description": "牛仔裤",
+      "category": "服装",
+      "type": "expense",
+      "date": "2025-10-26T07:12:58.477Z",
+      "icon": "shirt",
+      "id": "1761462778477"
+    },
+    {
+      "amount": 22,
+      "description": "烟",
+      "category": "酒饮",
+      "type": "expense",
+      "date": "2025-10-26T06:53:29.658Z",
+      "icon": "wine",
+      "id": "1761461609658"
+    },
+    {
+      "amount": 40,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-26T03:14:12.147Z",
+      "icon": "restaurant",
+      "id": "1761448452147"
+    },
+    {
+      "amount": 23,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-25T11:30:11.289Z",
+      "icon": "restaurant",
+      "id": "1761391811289"
+    },
+    {
+      "amount": 35,
+      "description": "车相关",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-25T10:35:31.724Z",
+      "icon": "car",
+      "id": "1761388531724"
+    },
+    {
+      "amount": 5,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-25T02:14:54.816Z",
+      "icon": "restaurant",
+      "id": "1761358494816"
+    },
+    {
+      "amount": 156.6,
+      "description": "车相关",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-25T01:40:34.580Z",
+      "icon": "car",
+      "id": "1761356434580"
+    },
+    {
+      "amount": 2.5,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-24T10:56:52.815Z",
+      "icon": "bus",
+      "id": "1761303412818"
+    },
+    {
+      "amount": 3,
+      "description": "零食",
+      "category": "零食",
+      "type": "expense",
+      "date": "2025-10-24T02:50:32.571Z",
+      "icon": "ice-cream",
+      "id": "1761274232571"
+    },
+    {
+      "amount": 50,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-24T02:50:14.622Z",
+      "icon": "bus",
+      "id": "1761274214622"
+    },
+    {
+      "amount": 32,
+      "description": "支架",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-23T14:38:29.132Z",
+      "icon": "car",
+      "id": "1761230309132"
+    },
+    {
+      "amount": 2.5,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-23T11:25:30.445Z",
+      "icon": "bus",
+      "id": "1761218730445"
+    },
+    {
+      "amount": 2088,
+      "description": "保险",
+      "category": "医疗",
+      "type": "expense",
+      "date": "2025-10-23T00:18:54.595Z",
+      "icon": "medkit",
+      "id": "1761178734595"
+    },
+    {
+      "amount": 14,
+      "description": "零食",
+      "category": "零食",
+      "type": "expense",
+      "date": "2025-10-22T16:31:54.913Z",
+      "icon": "ice-cream",
+      "id": "1761150714913"
+    },
+    {
+      "amount": 6,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-22T01:39:44.437Z",
+      "icon": "restaurant",
+      "id": "1761097184437"
+    },
+    {
+      "amount": 14,
+      "description": "日用品",
+      "category": "日用品",
+      "type": "expense",
+      "date": "2025-10-21T12:55:55.590Z",
+      "icon": "bag",
+      "id": "1761051355590"
+    },
+    {
+      "amount": 10,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-21T10:31:32.036Z",
+      "icon": "restaurant",
+      "id": "1761042692036"
+    },
+    {
+      "amount": 2.5,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-20T12:49:21.884Z",
+      "icon": "bus",
+      "id": "1760964561884"
+    },
+    {
+      "amount": 10,
+      "description": "食材",
+      "category": "食材",
+      "type": "expense",
+      "date": "2025-10-19T12:18:33.047Z",
+      "icon": "basket",
+      "id": "1760876313047"
+    },
+    {
+      "amount": 10,
+      "description": "食材",
+      "category": "食材",
+      "type": "expense",
+      "date": "2025-10-19T12:18:30.868Z",
+      "icon": "basket",
+      "id": "1760876310868"
+    },
+    {
+      "amount": 1.5,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-19T12:17:04.361Z",
+      "icon": "bus",
+      "id": "1760876224361"
+    },
+    {
+      "amount": 84,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-19T11:17:38.419Z",
+      "icon": "restaurant",
+      "id": "1760872658419"
+    },
+    {
+      "amount": 84,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-19T11:17:36.806Z",
+      "icon": "restaurant",
+      "id": "1760872656806"
+    },
+    {
+      "amount": 4,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-19T10:21:17.224Z",
+      "icon": "restaurant",
+      "id": "1760869277224"
+    },
+    {
+      "amount": 405,
+      "description": "医疗",
+      "category": "医疗",
+      "type": "expense",
+      "date": "2025-10-19T10:00:50.800Z",
+      "icon": "medkit",
+      "id": "1760868050800"
+    },
+    {
+      "amount": 1.5,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-19T07:33:17.537Z",
+      "icon": "bus",
+      "id": "1760859197537"
+    },
+    {
+      "amount": 21,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-19T03:10:02.792Z",
+      "icon": "restaurant",
+      "id": "1760843402792"
+    },
+    {
+      "amount": 173,
+      "description": "车相关",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-18T12:00:56.268Z",
+      "icon": "car",
+      "id": "1760788856268"
+    },
+    {
+      "amount": 24,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-18T03:14:31.641Z",
+      "icon": "restaurant",
+      "id": "1760757271641"
+    },
+    {
+      "amount": 60,
+      "description": "车相关",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-17T16:21:46.834Z",
+      "icon": "car",
+      "id": "1760718106834"
+    },
+    {
+      "amount": 25,
+      "description": "酒饮",
+      "category": "酒饮",
+      "type": "expense",
+      "date": "2025-10-17T15:23:11.772Z",
+      "icon": "wine",
+      "id": "1760714591772"
+    },
+    {
+      "amount": 57,
+      "description": "路费",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-17T13:45:56.839Z",
+      "icon": "car",
+      "id": "1760708756839"
+    },
+    {
+      "amount": 6,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-17T01:38:02.283Z",
+      "icon": "restaurant",
+      "id": "1760665082283"
+    },
+    {
+      "amount": 2.5,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-16T12:05:11.359Z",
+      "icon": "bus",
+      "id": "1760616311359"
+    },
+    {
+      "amount": 2.5,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-15T13:40:50.790Z",
+      "icon": "bus",
+      "id": "1760535650790"
+    },
+    {
+      "amount": 5,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-15T10:22:18.708Z",
+      "icon": "restaurant",
+      "id": "1760523738708"
+    },
+    {
+      "amount": 6,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-15T01:35:08.737Z",
+      "icon": "restaurant",
+      "id": "1760492108737"
+    },
+    {
+      "amount": 2.5,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-14T12:40:35.644Z",
+      "icon": "bus",
+      "id": "1760445635644"
+    },
+    {
+      "amount": 5,
+      "description": "酒饮",
+      "category": "酒饮",
+      "type": "expense",
+      "date": "2025-10-13T02:49:55.847Z",
+      "icon": "wine",
+      "id": "1760323795847"
+    },
+    {
+      "amount": 5,
+      "description": "vpn",
+      "category": "数码",
+      "type": "expense",
+      "date": "2025-10-12T07:44:28.297Z",
+      "icon": "tv",
+      "id": "1760255068297"
+    },
+    {
+      "amount": 37,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-12T04:05:52.418Z",
+      "icon": "restaurant",
+      "id": "1760241952418"
+    },
+    {
+      "amount": 27.5,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-11T14:51:31.409Z",
+      "icon": "restaurant",
+      "id": "1760194291409"
+    },
+    {
+      "amount": 26,
+      "description": "高速",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-11T11:49:24.581Z",
+      "icon": "car",
+      "id": "1760183364581"
+    },
+    {
+      "amount": 5,
+      "description": "食材",
+      "category": "食材",
+      "type": "expense",
+      "date": "2025-10-11T05:19:15.581Z",
+      "icon": "basket",
+      "id": "1760159955581"
+    },
+    {
+      "amount": 18,
+      "description": "出风口防尘",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-11T02:02:25.782Z",
+      "icon": "car",
+      "id": "1760148145782"
+    },
+    {
+      "amount": 35,
+      "description": "车标",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-11T01:43:25.248Z",
+      "icon": "car",
+      "id": "1760147005248"
+    },
+    {
+      "amount": 31,
+      "description": "停车牌",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-11T01:43:15.067Z",
+      "icon": "car",
+      "id": "1760146995067"
+    },
+    {
+      "amount": 80,
+      "description": "酒店",
+      "category": "酒店",
+      "type": "expense",
+      "date": "2025-10-10T16:31:58.577Z",
+      "icon": "bed",
+      "id": "1760113918577"
+    },
+    {
+      "amount": 593,
+      "description": "过路费",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-10T12:49:51.051Z",
+      "icon": "car",
+      "id": "1760100591051"
+    },
+    {
+      "amount": 207,
+      "description": "油费",
+      "category": "油费",
+      "type": "expense",
+      "date": "2025-10-10T12:49:29.650Z",
+      "icon": "speedometer",
+      "id": "1760100569650"
+    },
+    {
+      "amount": 186,
+      "description": "油费",
+      "category": "油费",
+      "type": "expense",
+      "date": "2025-10-10T05:33:23.388Z",
+      "icon": "speedometer",
+      "id": "1760074403388"
+    },
+    {
+      "amount": 237,
+      "description": "油费",
+      "category": "油费",
+      "type": "expense",
+      "date": "2025-10-10T02:34:06.613Z",
+      "icon": "speedometer",
+      "id": "1760063646613"
+    },
+    {
+      "amount": 18,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-09T23:27:18.935Z",
+      "icon": "restaurant",
+      "id": "1760052438935"
+    },
+    {
+      "amount": 629,
+      "description": "过路费",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-09T15:28:36.489Z",
+      "icon": "car",
+      "id": "1760023716489"
+    },
+    {
+      "amount": 220,
+      "description": "油费",
+      "category": "油费",
+      "type": "expense",
+      "date": "2025-10-09T08:29:14.683Z",
+      "icon": "speedometer",
+      "id": "1759998554683"
+    },
+    {
+      "amount": 12,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-09T01:21:34.729Z",
+      "icon": "restaurant",
+      "id": "1759972894729"
+    },
+    {
+      "amount": 29,
+      "description": "磁吸充电线",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-08T12:12:53.894Z",
+      "icon": "car",
+      "id": "1759925573894"
+    },
+    {
+      "amount": 5,
+      "description": "车相关",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-08T06:52:39.383Z",
+      "icon": "car",
+      "id": "1759906359383"
+    },
+    {
+      "amount": 200,
+      "description": "油费",
+      "category": "油费",
+      "type": "expense",
+      "date": "2025-10-08T06:52:36.002Z",
+      "icon": "speedometer",
+      "id": "1759906356002"
+    },
+    {
+      "amount": 30,
+      "description": "旅行",
+      "category": "旅行",
+      "type": "expense",
+      "date": "2025-10-08T04:07:25.194Z",
+      "icon": "airplane",
+      "id": "1759896445194"
+    },
+    {
+      "amount": 13,
+      "description": "小圆镜",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-07T12:28:58.566Z",
+      "icon": "car",
+      "id": "1759840138566"
+    },
+    {
+      "amount": 48,
+      "description": "廖家包子",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-07T01:52:53.061Z",
+      "icon": "restaurant",
+      "id": "1759801973061"
+    },
+    {
+      "amount": 10,
+      "description": "毛巾",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-06T14:43:58.646Z",
+      "icon": "car",
+      "id": "1759761838646"
+    },
+    {
+      "amount": 2,
+      "description": "车相关",
+      "category": "车相关",
+      "type": "expense",
+      "date": "2025-10-06T11:42:26.475Z",
+      "icon": "car",
+      "id": "1759750946475"
+    },
+    {
+      "amount": 8,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-06T11:01:37.688Z",
+      "icon": "restaurant",
+      "id": "1759748497688"
+    },
+    {
+      "amount": 10,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-06T10:52:13.703Z",
+      "icon": "restaurant",
+      "id": "1759747933703"
+    },
+    {
+      "amount": 20,
+      "description": "零食",
+      "category": "零食",
+      "type": "expense",
+      "date": "2025-10-06T10:45:41.859Z",
+      "icon": "ice-cream",
+      "id": "1759747541859"
+    },
+    {
+      "amount": 12,
+      "description": "水果",
+      "category": "水果",
+      "type": "expense",
+      "date": "2025-10-06T10:37:18.739Z",
+      "icon": "nutrition",
+      "id": "1759747038739"
+    },
+    {
+      "amount": 25,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-05T13:13:07.389Z",
+      "icon": "restaurant",
+      "id": "1759669987389"
+    },
+    {
+      "amount": 30,
+      "description": "水果",
+      "category": "水果",
+      "type": "expense",
+      "date": "2025-10-05T10:46:48.527Z",
+      "icon": "nutrition",
+      "id": "1759661208527"
+    },
+    {
+      "amount": 15,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-05T08:37:23.659Z",
+      "icon": "restaurant",
+      "id": "1759653443659"
+    },
+    {
+      "amount": 80,
+      "description": "水帘洞",
+      "category": "旅行",
+      "type": "expense",
+      "date": "2025-10-05T07:01:10.334Z",
+      "icon": "airplane",
+      "id": "1759647670334"
+    },
+    {
+      "amount": 28,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-04T10:58:23.047Z",
+      "icon": "restaurant",
+      "id": "1759575503047"
+    },
+    {
+      "amount": 202,
+      "description": "油费",
+      "category": "油费",
+      "type": "expense",
+      "date": "2025-10-04T10:58:19.359Z",
+      "icon": "speedometer",
+      "id": "1759575499359"
+    },
+    {
+      "amount": 30,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-03T06:32:07.227Z",
+      "icon": "bus",
+      "id": "1759473127227"
+    },
+    {
+      "amount": 40,
+      "description": "1",
+      "category": "通讯",
+      "type": "expense",
+      "date": "2025-10-03T02:22:25.409Z",
+      "icon": "chatbubbles",
+      "id": "1759458145409"
+    },
+    {
+      "amount": 52,
+      "description": "1",
+      "category": "通讯",
+      "type": "expense",
+      "date": "2025-10-03T02:22:15.118Z",
+      "icon": "chatbubbles",
+      "id": "1759458135118"
+    },
+    {
+      "amount": 41,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-03T01:37:30.801Z",
+      "icon": "bus",
+      "id": "1759455450801"
+    },
+    {
+      "amount": 24,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-03T01:37:24.489Z",
+      "icon": "restaurant",
+      "id": "1759455444489"
+    },
+    {
+      "amount": 23,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-02T11:22:53.751Z",
+      "icon": "restaurant",
+      "id": "1759404173751"
+    },
+    {
+      "amount": 3278,
+      "description": "日用品",
+      "category": "日用品",
+      "type": "expense",
+      "date": "2025-10-02T11:05:16.290Z",
+      "icon": "bag",
+      "id": "1759403116290"
+    },
+    {
+      "amount": 142,
+      "description": "乳鸽",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-02T08:28:24.009Z",
+      "icon": "restaurant",
+      "id": "1759393704009"
+    },
+    {
+      "amount": 72,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-02T03:31:34.762Z",
+      "icon": "restaurant",
+      "id": "1759375894762"
+    },
+    {
+      "amount": 2,
+      "description": "公交",
+      "category": "公交",
+      "type": "expense",
+      "date": "2025-10-01T08:27:07.164Z",
+      "icon": "bus",
+      "id": "1759307227164"
+    },
+    {
+      "amount": 2269,
+      "description": "住房",
+      "category": "住房",
+      "type": "expense",
+      "date": "2025-10-01T04:33:58.188Z",
+      "icon": "home",
+      "id": "1759293238188"
+    },
+    {
+      "amount": 29,
+      "description": "就餐",
+      "category": "就餐",
+      "type": "expense",
+      "date": "2025-10-01T02:48:04.071Z",
+      "icon": "restaurant",
+      "id": "1759286884071"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "就餐",
+      "icon": "restaurant",
+      "color": "#FF8A65",
+      "type": "expense"
+    },
+    {
+      "id": "2",
+      "name": "食材",
+      "icon": "basket",
+      "color": "#FFD54F",
+      "type": "expense"
+    },
+    {
+      "id": "3",
+      "name": "零食",
+      "icon": "ice-cream",
+      "color": "#F48FB1",
+      "type": "expense"
+    },
+    {
+      "id": "4",
+      "name": "酒饮",
+      "icon": "wine",
+      "color": "#CE93D8",
+      "type": "expense"
+    },
+    {
+      "id": "22",
+      "name": "水果",
+      "icon": "nutrition",
+      "color": "#81C784",
+      "type": "expense"
+    },
+    {
+      "id": "13",
+      "name": "服装",
+      "icon": "shirt",
+      "color": "#64B5F6",
+      "type": "expense"
+    },
+    {
+      "id": "11",
+      "name": "住房",
+      "icon": "home",
+      "color": "#90A4AE",
+      "type": "expense"
+    },
+    {
+      "id": "19",
+      "name": "酒店",
+      "icon": "bed",
+      "color": "#7986CB",
+      "type": "expense"
+    },
+    {
+      "id": "7",
+      "name": "公交",
+      "icon": "bus",
+      "color": "#4DB6AC",
+      "type": "expense"
+    },
+    {
+      "id": "20",
+      "name": "车相关",
+      "icon": "car",
+      "color": "#4DD0E1",
+      "type": "expense"
+    },
+    {
+      "id": "21",
+      "name": "油费",
+      "icon": "speedometer",
+      "color": "#FFB300",
+      "type": "expense"
+    },
+    {
+      "id": "5",
+      "name": "日用品",
+      "icon": "bag",
+      "color": "#AED581",
+      "type": "expense"
+    },
+    {
+      "id": "23",
+      "name": "数码",
+      "icon": "tv",
+      "color": "#90CAF9",
+      "type": "expense"
+    },
+    {
+      "id": "8",
+      "name": "娱乐",
+      "icon": "game-controller",
+      "color": "#BA68C8",
+      "type": "expense"
+    },
+    {
+      "id": "9",
+      "name": "医疗",
+      "icon": "medkit",
+      "color": "#E57373",
+      "type": "expense"
+    },
+    {
+      "id": "10",
+      "name": "教育",
+      "icon": "school",
+      "color": "#4FC3F7",
+      "type": "expense"
+    },
+    {
+      "id": "12",
+      "name": "通讯",
+      "icon": "chatbubbles",
+      "color": "#42A5F5",
+      "type": "expense"
+    },
+    {
+      "id": "14",
+      "name": "运动",
+      "icon": "barbell",
+      "color": "#66BB6A",
+      "type": "expense"
+    },
+    {
+      "id": "15",
+      "name": "旅行",
+      "icon": "airplane",
+      "color": "#9575CD",
+      "type": "expense"
+    },
+    {
+      "id": "24",
+      "name": "礼金",
+      "icon": "gift",
+      "color": "#FF8A80",
+      "type": "expense"
+    },
+    {
+      "id": "101",
+      "name": "工资",
+      "icon": "briefcase",
+      "color": "#81C784",
+      "type": "income"
+    },
+    {
+      "id": "102",
+      "name": "奖金",
+      "icon": "gift",
+      "color": "#FFB74D",
+      "type": "income"
+    },
+    {
+      "id": "103",
+      "name": "投资",
+      "icon": "trending-up",
+      "color": "#26A69A",
+      "type": "income"
+    },
+    {
+      "id": "104",
+      "name": "兼职",
+      "icon": "time",
+      "color": "#FFA726",
+      "type": "income"
+    },
+    {
+      "id": "105",
+      "name": "红包",
+      "icon": "cash",
+      "color": "#E57373",
+      "type": "income"
+    },
+    {
+      "id": "106",
+      "name": "其他",
+      "icon": "ellipsis-horizontal",
+      "color": "#B0BEC5",
+      "type": "income"
+    }
+  ],
+  "monthlySummary": {
+    "income": 0,
+    "expense": 3251,
+    "balance": -3251,
+    "month": "10",
+    "year": 2025
+  },
+  "exportDate": "2025-11-10T12:41:11.807Z",
+  "appVersion": "1.0.0"
+}

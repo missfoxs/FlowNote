@@ -5,24 +5,57 @@ import { Transaction } from "../../type";
 import FabPlus from "../../components/FabPlus";
 import { useNavigation } from "@react-navigation/native";
 import { Surface, Text } from "react-native-paper";
+import Overview from "./components/Overview";
+import { useEffect, useState } from "react";
+import dayjs from "dayjs";
 
 function Home() {
+    const [currentMonth, setCurrentMonth] = useState(dayjs().format('YYYY-MM'));
+
+    const [dayRecords, setDayRecords] = useState<{ day: string; records: Transaction[] }[]>([]);
+
     const { transactions, deleteTransaction } = useTransactionStore();
 
     const { categories } = useCategoryStore();
 
     const { navigate } = useNavigation();
 
-    const handleDetail = (record: Transaction) => {
-        console.log(record);
+    const handleDetail = () => {
+
     }
+
+    useEffect(() => {
+        // 获取当月数据
+        const monthTransactions = transactions.filter(transaction => {
+            return dayjs(transaction.date).format('YYYY-MM') === currentMonth;
+        })
+
+        // 转换为天为key, 记录为value的map
+        const dayMap = monthTransactions.reduce((acc, cur) => {
+            const day = dayjs(cur.date).format('YYYY-MM-DD');
+            acc[day] = acc[day] || [];
+            acc[day].push(cur);
+            return acc;
+        }, {} as Record<string, Transaction[]>);
+
+        // 转换为数组
+        const dayRecords = Object.entries(dayMap).map(([day, records]) => ({
+            day: dayjs(day).format('YYYY-MM-DD'),
+            records,
+        }));
+
+        console.log('dayRecords', dayRecords);
+
+        setDayRecords(dayRecords);
+    }, [currentMonth])
 
     return (
         <View style={[styles.container]}>
-            {transactions.length > 0 ? <FlatList
-                data={transactions}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => <TransactionRecord record={item} onDelete={deleteTransaction} onDetail={handleDetail} categories={categories} />}
+            <Overview currentMonth={currentMonth} setCurrentMonth={setCurrentMonth} />
+            {dayRecords.length > 0 ? <FlatList
+                data={dayRecords}
+                keyExtractor={(item) => item.day.toString()}
+                renderItem={({ item }) => <TransactionRecord recordByDay={item} onDelete={deleteTransaction} onDetail={handleDetail} categories={categories} />}
             /> : <Surface style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Text>暂无交易记录</Text>
             </Surface>}
