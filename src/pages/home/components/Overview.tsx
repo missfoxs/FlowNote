@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { StyleSheet, View } from "react-native";
-import { IconButton, Surface, Text } from "react-native-paper";
+import { Button, IconButton, Surface, Text } from "react-native-paper";
 import { useTransactionStore } from "../../../store";
 import { Transaction } from "../../../type";
 
@@ -11,7 +11,7 @@ interface OverviewProps {
 
 function Overview({ currentMonth, setCurrentMonth }: OverviewProps) {
 
-    const { addTransactionBatch } = useTransactionStore();
+    const { addTransactionBatch, clearTransactions } = useTransactionStore();
 
     const handleImport = async () => {
         const data = await import('../../../data/account_data_2025-11-10.json');
@@ -23,6 +23,9 @@ function Overview({ currentMonth, setCurrentMonth }: OverviewProps) {
             <View>
                 <Text>{currentMonth}</Text>
             </View>
+            <Button onPress={() => clearTransactions()}>Clear</Button>
+            {/* 上一个月 */}
+            {/* <Button onPress={() => setCurrentMonth(dayjs(currentMonth).subtract(1, 'month').format('YYYY-MM'))}>Last Month</Button> */}
             <View><IconButton icon={'import'} onPress={handleImport} /></View>
         </Surface>
     )
@@ -37,5 +40,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: 24,
         paddingVertical: 24,
+        marginBottom: 24,
     },
 })

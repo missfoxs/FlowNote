@@ -12,7 +12,7 @@ import dayjs from "dayjs";
 function Home() {
     const [currentMonth, setCurrentMonth] = useState(dayjs().format('YYYY-MM'));
 
-    const [dayRecords, setDayRecords] = useState<{ day: string; records: Transaction[] }[]>([]);
+    const [dayRecords, setDayRecords] = useState<{ day: string; records: Transaction[]; exposeTotal: number }[]>([]);
 
     const { transactions, deleteTransaction } = useTransactionStore();
 
@@ -39,15 +39,16 @@ function Home() {
         }, {} as Record<string, Transaction[]>);
 
         // 转换为数组
-        const dayRecords = Object.entries(dayMap).map(([day, records]) => ({
+        const _dayRecords = Object.entries(dayMap).map(([day, records]) => ({
             day: dayjs(day).format('YYYY-MM-DD'),
             records,
+            exposeTotal: records.reduce((acc, cur) => acc + (cur.mode === 'expense' ? cur.amount : 0), 0),
         }));
 
-        console.log('dayRecords', dayRecords);
+        console.log(_dayRecords);
 
-        setDayRecords(dayRecords);
-    }, [currentMonth])
+        setDayRecords(_dayRecords);
+    }, [currentMonth, transactions])
 
     return (
         <View style={[styles.container]}>

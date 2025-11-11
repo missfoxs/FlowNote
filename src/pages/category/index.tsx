@@ -33,8 +33,8 @@ function CategoryCom() {
 
         addTransaction({
             amount: payload.amount,
-            categoryId: currentCategory.current?.id || '',
-            remark: payload.description,
+            category: currentCategory.current?.name || '',
+            description: payload.description,
         });
 
         currentCategory.current = null;

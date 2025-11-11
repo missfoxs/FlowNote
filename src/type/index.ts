@@ -11,9 +11,11 @@ export type TransactionMode = 'income' | 'expense';
 
 export type Transaction = {
     id: string;
-    categoryId: Category['id'];
+    category: string;
     amount: number;
     mode: TransactionMode;
     date: Dayjs;
-    remark?: string;
+    description?: string;
 }
+
+export type ImportTransaction = Partial<Transaction & { category?: string, description?: string }>

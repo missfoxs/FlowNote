@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import dayjs from 'dayjs';
 
 export const TRANSACTON_RECORD = 'transaction_record'
 
@@ -60,4 +61,17 @@ export async function clearLocalStorage(): Promise<void> {
     console.error('clearLocalStorage 失败:', error);
     throw error;
   }
+}
+
+export const randomId = () => Math.random().toString(36).substring(2, 10);
+
+export const formatDay = (day: string) => {
+    if (dayjs().date() === dayjs(day).date()) {
+        return '今天';
+    }
+
+    if (dayjs().date() - dayjs(day).date() === 1) {
+        return '昨天';
+    }
+    return dayjs(day).format('YYYY-MM-DD');
 }

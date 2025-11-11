@@ -1,43 +1,16 @@
 import { create } from "zustand";
-import { Transaction, Category } from "../type";
+import { Transaction, Category, ImportTransaction } from "../type";
 import dayjs from "dayjs";
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-
-const defaultCategoryList: Category[] = [
-    {
-        id: '1',
-        name: '餐饮',
-        icon: 'food',
-        color: '#FF5722',
-    },
-    {
-        id: '2',
-        name: '服饰',
-        icon: 'tshirt-crew',
-        color: '#E91E63',
-    },
-    {
-        id: '3',
-        name: '住房',
-        icon: 'home',
-        color: '#9C27B0',
-    },
-    {
-        id: '4',
-        name: '交通',
-        icon: 'car',
-        color: '#607D8B',
-    },
-
-];
+import { randomId } from "../utils";
 
 interface TransactionStore {
     transactions: Transaction[];
     addTransaction: (transaction: Partial<Transaction>) => void;
     addTransactionBatch: (transactions: Partial<Transaction>[]) => void;
     deleteTransaction: (record: Transaction) => void;
+    clearTransactions: () => void;
     // updateTransaction: (id: number, transaction: Transaction) => void;
 }
 
@@ -51,28 +24,29 @@ const useTransactionStore = create<TransactionStore>()(
                     amount: transaction.amount ?? 0,
                     mode: transaction.mode ?? 'expense',
                     date: transaction.date ?? dayjs(),
-                    remark: transaction.remark ?? '',
-                    id: String(get().transactions.length + 1),
-                    categoryId: transaction.categoryId ?? defaultCategoryList[0].id,
+                    description: transaction.description ?? '',
+                    id: randomId(),
+                    category: transaction.category ?? '',
                 }
                 set(state => ({
-                    transactions: [...state.transactions, newTransaction]
+                    transactions: [newTransaction, ...state.transactions]
                 }))
             },
             deleteTransaction: (record: Transaction) => set(state => ({
                 transactions: state.transactions.filter((item) => item.id !== record.id),
             })),
-            addTransactionBatch: (transactions: Partial<Transaction>[]) => set(state => ({
+            addTransactionBatch: (transactions: ImportTransaction[]) => set(state => ({
                 transactions: [...state.transactions, ...transactions.map((item) => ({
                     ...item,
-                    id: String(state.transactions.length + 1),
-                    categoryId: item.categoryId ?? defaultCategoryList[0].id,
+                    id: randomId(),
+                    category: item.category ?? '',
                     amount: item.amount ?? 0,
                     mode: item.mode ?? 'expense',
                     date: item.date ?? dayjs(),
-                    remark: item.remark ?? '',
+                    description: item.description || '',
                 }))],
             })),
+            clearTransactions: () => set({ transactions: [] }),
         }),
         {
             name: 'transaction-storage',
