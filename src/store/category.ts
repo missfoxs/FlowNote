@@ -1,13 +1,13 @@
-import { create } from "zustand";
-import { Category } from "../type";
-import { categories } from '../data/index.json'
+import { create } from 'zustand';
+import { Category } from '../type';
+import { categories } from '../data/index.json';
 
 interface CategoryStore {
-    categories: Category[];
+	categories: Category[];
 }
 
-const useCategoryStore = create<CategoryStore>((set) => ({
-    categories,
+const useCategoryStore = create<CategoryStore>(set => ({
+	categories,
 }));
 
 export { useCategoryStore };
