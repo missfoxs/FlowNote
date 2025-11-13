@@ -10,7 +10,7 @@ interface TransactionRecordProps {
 	categories: Category[];
 }
 
-export default function TransactionRecord({ recordByDay, onDelete, onDetail, categories }: TransactionRecordProps) {
+export default function TransactionRecord({ recordByDay, onDelete, categories }: TransactionRecordProps) {
 	const { day, records, exposeTotal } = recordByDay;
 
 	return (
@@ -38,21 +38,19 @@ export default function TransactionRecord({ recordByDay, onDelete, onDetail, cat
 							}
 							containerStyle={styles.container}
 							right={() => (
-								<TouchableRipple onPress={() => onDetail(record)} rippleColor="rgba(0, 0, 0, .32)">
-									<View style={styles.rightCom}>
-										<Text
-											style={{
-												color: record.mode === 'expense' ? '#c62828' : '#2e7d32',
-											}}
-										>
-											{record.mode === 'expense' ? '-' : '+'}
-											{record.amount}
-										</Text>
-										<TouchableRipple onPress={() => onDelete(record)}>
-											<Icon source={'delete'} size={20} color={'#c62828'} />
-										</TouchableRipple>
-									</View>
-								</TouchableRipple>
+								<View style={styles.rightCom}>
+									<Text
+										style={{
+											color: record.mode === 'expense' ? '#c62828' : '#2e7d32',
+										}}
+									>
+										{record.mode === 'expense' ? '-' : '+'}
+										{record.amount}
+									</Text>
+									<TouchableRipple onPress={() => onDelete(record)}>
+										<Icon source={'delete'} size={20} color={'#c62828'} />
+									</TouchableRipple>
+								</View>
 							)}
 						/>
 					);
@@ -63,13 +61,13 @@ export default function TransactionRecord({ recordByDay, onDelete, onDetail, cat
 }
 
 const styles = StyleSheet.create({
-	container: {
-		justifyContent: 'space-between',
-	},
 	recordItem: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		padding: 10,
+	},
+	container: {
+		justifyContent: 'space-between',
+		paddingLeft: 15
 	},
 	rightCom: {
 		flexDirection: 'column',

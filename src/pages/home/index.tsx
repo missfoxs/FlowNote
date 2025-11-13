@@ -4,13 +4,15 @@ import TransactionRecord from './components/TransactionRecord';
 import { Transaction } from '../../type';
 import FabPlus from '../../components/FabPlus';
 import { useNavigation } from '@react-navigation/native';
-import { Surface, Text } from 'react-native-paper';
+import { Text } from 'react-native-paper';
 import Overview from './components/Overview';
 import { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 
 function Home() {
 	const [currentMonth, setCurrentMonth] = useState(dayjs().format('YYYY-MM'));
+
+	const [refreshing, setRefreshing] = useState(false);
 
 	const [dayRecords, setDayRecords] = useState<{ day: string; records: Transaction[]; exposeTotal: number }[]>([]);
 
@@ -21,6 +23,23 @@ function Home() {
 	const { navigate } = useNavigation();
 
 	const handleDetail = () => {};
+
+	// 上一个月
+	const handleEndReached = () => {
+		const _currentMonth = dayjs(currentMonth).subtract(1, 'month').format('YYYY-MM')
+		setCurrentMonth(_currentMonth);
+	};
+
+	// 下拉刷新
+	const handleRefresh = () => {
+		setRefreshing(true);
+		const month = dayjs().month() + 1;
+		if (month > dayjs(currentMonth).month()) {
+			const _currentMonth = dayjs(currentMonth).add(1, 'month').format('YYYY-MM')
+			setCurrentMonth(_currentMonth);
+		}
+		setRefreshing(false);
+	}
 
 	useEffect(() => {
 		// 获取当月数据
@@ -51,30 +70,18 @@ function Home() {
 	return (
 		<View style={[styles.container]}>
 			<Overview currentMonth={currentMonth} setCurrentMonth={setCurrentMonth} />
-			{dayRecords.length > 0 ? (
-				<FlatList
-					data={dayRecords}
-					keyExtractor={item => item.day.toString()}
-					renderItem={({ item }) => (
-						<TransactionRecord
-							recordByDay={item}
-							onDelete={deleteTransaction}
-							onDetail={handleDetail}
-							categories={categories}
-						/>
-					)}
-				/>
-			) : (
-				<Surface
-					style={{
-						flex: 1,
-						justifyContent: 'center',
-						alignItems: 'center',
-					}}
-				>
-					<Text>暂无交易记录</Text>
-				</Surface>
-			)}
+			<FlatList
+				data={dayRecords}
+				keyExtractor={item => item.day.toString()}
+				renderItem={({ item }) => (
+					<TransactionRecord recordByDay={item} onDelete={deleteTransaction} onDetail={handleDetail} categories={categories} />
+				)}
+				onRefresh={handleRefresh}
+				refreshing={refreshing}
+				onEndReached={handleEndReached}
+				onEndReachedThreshold={0.3}
+				ListEmptyComponent={<Text>暂无交易记录</Text>}
+			/>
 			<FabPlus onPress={() => navigate('Category' as never)} />
 		</View>
 	);
