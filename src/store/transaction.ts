@@ -34,9 +34,7 @@ const useTransactionStore = create<TransactionStore>()(
 			},
 			deleteTransaction: (record: Transaction) =>
 				set(state => ({
-					transactions: state.transactions.filter(
-						item => item.id !== record.id,
-					),
+					transactions: state.transactions.filter(item => item.id !== record.id),
 				})),
 			addTransactionBatch: (transactions: ImportTransaction[]) =>
 				set(state => ({

@@ -18,6 +18,4 @@ export type Transaction = {
 	description?: string;
 };
 
-export type ImportTransaction = Partial<
-	Transaction & { category?: string; description?: string }
->;
+export type ImportTransaction = Partial<Transaction & { category?: string; description?: string }>;

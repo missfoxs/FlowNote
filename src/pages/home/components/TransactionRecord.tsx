@@ -1,11 +1,4 @@
-import {
-	Avatar,
-	Icon,
-	List,
-	Surface,
-	Text,
-	TouchableRipple,
-} from 'react-native-paper';
+import { Avatar, Icon, List, Surface, Text, TouchableRipple } from 'react-native-paper';
 import { Category, Transaction } from '../../../type';
 import { StyleSheet, View } from 'react-native';
 import { formatDay } from '../../../utils';
@@ -17,28 +10,15 @@ interface TransactionRecordProps {
 	categories: Category[];
 }
 
-export default function TransactionRecord({
-	recordByDay,
-	onDelete,
-	onDetail,
-	categories,
-}: TransactionRecordProps) {
+export default function TransactionRecord({ recordByDay, onDelete, onDetail, categories }: TransactionRecordProps) {
 	const { day, records, exposeTotal } = recordByDay;
 
 	return (
 		<Surface style={styles.recordItem}>
 			<List.Section>
-				<List.Item
-					title={formatDay(day)}
-					right={() => <Text>共支出¥ {exposeTotal}</Text>}
-					disabled
-				/>
+				<List.Item title={formatDay(day)} right={() => <Text>共支出¥ {exposeTotal}</Text>} disabled />
 				{records.map(record => {
-					const category = categories.find(
-						item =>
-							item.id === record.category ||
-							item.name === record.category,
-					);
+					const category = categories.find(item => item.id === record.category || item.name === record.category);
 
 					return (
 						<List.Item
@@ -58,32 +38,18 @@ export default function TransactionRecord({
 							}
 							containerStyle={styles.container}
 							right={() => (
-								<TouchableRipple
-									onPress={() => onDetail(record)}
-									rippleColor="rgba(0, 0, 0, .32)"
-								>
+								<TouchableRipple onPress={() => onDetail(record)} rippleColor="rgba(0, 0, 0, .32)">
 									<View style={styles.rightCom}>
 										<Text
 											style={{
-												color:
-													record.mode === 'expense'
-														? '#c62828'
-														: '#2e7d32',
+												color: record.mode === 'expense' ? '#c62828' : '#2e7d32',
 											}}
 										>
-											{record.mode === 'expense'
-												? '-'
-												: '+'}
+											{record.mode === 'expense' ? '-' : '+'}
 											{record.amount}
 										</Text>
-										<TouchableRipple
-											onPress={() => onDelete(record)}
-										>
-											<Icon
-												source={'delete'}
-												size={20}
-												color={'#c62828'}
-											/>
+										<TouchableRipple onPress={() => onDelete(record)}>
+											<Icon source={'delete'} size={20} color={'#c62828'} />
 										</TouchableRipple>
 									</View>
 								</TouchableRipple>

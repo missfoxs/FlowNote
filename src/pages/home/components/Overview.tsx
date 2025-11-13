@@ -14,9 +14,7 @@ function Overview({ currentMonth, setCurrentMonth }: OverviewProps) {
 
 	const handleImport = async () => {
 		const data = await import('../../../data/account_data_2025-11-10.json');
-		addTransactionBatch(
-			data.default.transactions as unknown as Transaction[],
-		);
+		addTransactionBatch(data.default.transactions as unknown as Transaction[]);
 	};
 
 	return (

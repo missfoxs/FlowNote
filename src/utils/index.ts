@@ -10,8 +10,7 @@ export const TRANSACTON_RECORD = 'transaction_record';
  */
 export async function setLocalStorage(key: string, value: any): Promise<void> {
 	try {
-		const dataToStore =
-			typeof value === 'string' ? value : JSON.stringify(value);
+		const dataToStore = typeof value === 'string' ? value : JSON.stringify(value);
 		await AsyncStorage.setItem(key, dataToStore);
 	} catch (error) {
 		console.error('setLocalStorage 失败:', error);

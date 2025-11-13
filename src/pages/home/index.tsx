@@ -12,9 +12,7 @@ import dayjs from 'dayjs';
 function Home() {
 	const [currentMonth, setCurrentMonth] = useState(dayjs().format('YYYY-MM'));
 
-	const [dayRecords, setDayRecords] = useState<
-		{ day: string; records: Transaction[]; exposeTotal: number }[]
-	>([]);
+	const [dayRecords, setDayRecords] = useState<{ day: string; records: Transaction[]; exposeTotal: number }[]>([]);
 
 	const { transactions, deleteTransaction } = useTransactionStore();
 
@@ -42,10 +40,7 @@ function Home() {
 		const _dayRecords = Object.entries(dayMap).map(([day, records]) => ({
 			day: dayjs(day).format('YYYY-MM-DD'),
 			records,
-			exposeTotal: records.reduce(
-				(acc, cur) => acc + (cur.mode === 'expense' ? cur.amount : 0),
-				0,
-			),
+			exposeTotal: records.reduce((acc, cur) => acc + (cur.mode === 'expense' ? cur.amount : 0), 0),
 		}));
 
 		console.log(_dayRecords);
@@ -55,10 +50,7 @@ function Home() {
 
 	return (
 		<View style={[styles.container]}>
-			<Overview
-				currentMonth={currentMonth}
-				setCurrentMonth={setCurrentMonth}
-			/>
+			<Overview currentMonth={currentMonth} setCurrentMonth={setCurrentMonth} />
 			{dayRecords.length > 0 ? (
 				<FlatList
 					data={dayRecords}

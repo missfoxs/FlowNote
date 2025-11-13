@@ -24,10 +24,7 @@ function CategoryCom() {
 		setShowKeyboard(true);
 	};
 
-	const handleCloseKeyboard = (payload: {
-		amount: number;
-		description: string;
-	}) => {
+	const handleCloseKeyboard = (payload: { amount: number; description: string }) => {
 		if (payload.amount <= 0) return;
 
 		if (!currentCategory.current) return;

@@ -52,9 +52,7 @@ function CustomKeyboard({ onClose }: CustomKeyboardProps) {
 	return (
 		<Drawer.Section style={styles.keyboard}>
 			<Surface style={styles.displayContainer}>
-				<Text style={styles.displayText}>
-					¥ {formatDisplayValue(displayValue)}
-				</Text>
+				<Text style={styles.displayText}>¥ {formatDisplayValue(displayValue)}</Text>
 			</Surface>
 
 			{/* 备注 */}
@@ -68,12 +66,7 @@ function CustomKeyboard({ onClose }: CustomKeyboardProps) {
 
 			<Surface style={styles.keyboard}>
 				{keyboardLayout.map(renderKeyboardRow)}
-				<Button
-					mode="outlined"
-					onPress={() =>
-						onClose?.({ amount: Number(displayValue), description })
-					}
-				>
+				<Button mode="outlined" onPress={() => onClose?.({ amount: Number(displayValue), description })}>
 					确认
 				</Button>
 			</Surface>

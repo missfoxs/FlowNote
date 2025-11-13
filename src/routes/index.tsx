@@ -15,16 +15,8 @@ export default function Entry() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator initialRouteName={Router_Name.Home}>
-				<Stack.Screen
-					name={Router_Name.Home}
-					component={HomeScreen}
-					options={{ headerShown: false }}
-				/>
-				<Stack.Screen
-					name={Router_Name.Category}
-					component={CategoryScreen}
-					options={{ headerShown: false }}
-				/>
+				<Stack.Screen name={Router_Name.Home} component={HomeScreen} options={{ headerShown: false }} />
+				<Stack.Screen name={Router_Name.Category} component={CategoryScreen} options={{ headerShown: false }} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

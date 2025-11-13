@@ -6,10 +6,7 @@
  */
 
 import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-	SafeAreaProvider,
-	useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import React from 'react';
 import Entry from './src/routes';
@@ -19,9 +16,7 @@ function App() {
 
 	return (
 		<SafeAreaProvider>
-			<StatusBar
-				barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-			/>
+			<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
 			<AppContent />
 		</SafeAreaProvider>
 	);
