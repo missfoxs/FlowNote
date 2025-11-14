@@ -42,6 +42,7 @@ export default function TransactionRecord({ recordByDay, onDelete, categories }:
 									<Text
 										style={{
 											color: record.mode === 'expense' ? '#c62828' : '#2e7d32',
+											backgroundColor: 'red'
 										}}
 									>
 										{record.mode === 'expense' ? '-' : '+'}
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
 	},
 	container: {
 		justifyContent: 'space-between',
-		paddingLeft: 15
+		paddingLeft: 15,
 	},
 	rightCom: {
 		flexDirection: 'column',

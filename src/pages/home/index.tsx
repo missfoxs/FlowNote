@@ -26,7 +26,7 @@ function Home() {
 
 	// 上一个月
 	const handleEndReached = () => {
-		const _currentMonth = dayjs(currentMonth).subtract(1, 'month').format('YYYY-MM')
+		const _currentMonth = dayjs(currentMonth).subtract(1, 'month').format('YYYY-MM');
 		setCurrentMonth(_currentMonth);
 	};
 
@@ -35,11 +35,11 @@ function Home() {
 		setRefreshing(true);
 		const month = dayjs().month() + 1;
 		if (month > dayjs(currentMonth).month()) {
-			const _currentMonth = dayjs(currentMonth).add(1, 'month').format('YYYY-MM')
+			const _currentMonth = dayjs(currentMonth).add(1, 'month').format('YYYY-MM');
 			setCurrentMonth(_currentMonth);
 		}
 		setRefreshing(false);
-	}
+	};
 
 	useEffect(() => {
 		// 获取当月数据
