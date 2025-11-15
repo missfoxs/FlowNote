@@ -39,12 +39,7 @@ export default function TransactionRecord({ recordByDay, onDelete, categories }:
 							containerStyle={styles.container}
 							right={() => (
 								<View style={styles.rightCom}>
-									<Text
-										style={{
-											color: record.mode === 'expense' ? '#c62828' : '#2e7d32',
-											backgroundColor: 'red'
-										}}
-									>
+									<Text style={{ color: record.mode === 'expense' ? '#c62828' : '#2e7d32' }}>
 										{record.mode === 'expense' ? '-' : '+'}
 										{record.amount}
 									</Text>

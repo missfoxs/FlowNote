@@ -69,7 +69,7 @@ function Home() {
 
 	return (
 		<View style={[styles.container]}>
-			<Overview currentMonth={currentMonth} setCurrentMonth={setCurrentMonth} />
+			<Overview currentMonth={currentMonth} />
 			<FlatList
 				data={dayRecords}
 				keyExtractor={item => item.day.toString()}

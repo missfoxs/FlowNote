@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Transaction, Category, ImportTransaction } from '../type';
+import { Transaction, ImportTransaction } from '../type';
 import dayjs from 'dayjs';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -17,7 +17,7 @@ interface TransactionStore {
 const useTransactionStore = create<TransactionStore>()(
 	// @ts-ignore
 	persist(
-		(set, get) => ({
+		(set) => ({
 			transactions: [],
 			addTransaction: (transaction: Partial<Transaction>) => {
 				const newTransaction = {

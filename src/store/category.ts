@@ -6,7 +6,7 @@ interface CategoryStore {
 	categories: Category[];
 }
 
-const useCategoryStore = create<CategoryStore>(set => ({
+const useCategoryStore = create<CategoryStore>(() => ({
 	categories,
 }));
 
