@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { SegmentedButtons, Surface } from 'react-native-paper';
+import { Button, SegmentedButtons, Surface } from 'react-native-paper';
 import dayjs from 'dayjs';
 
 interface TimeDemensionProps {
 	timeDimension: 'month' | 'year';
-    monthList: string[];
+	monthList: string[];
 	yearList: number[];
 	selectedMonth: string;
 	selectedYear: string;
@@ -39,25 +39,37 @@ function TimeDemension({
 					},
 				]}
 			/>
-            {timeDimension === 'month' && (
-                <SegmentedButtons
-                    value={selectedMonth}
-                    onValueChange={(month: string) => setSelectedMonth(month)}
-                    buttons={monthList.map(month => ({
-                        value: month,
-                        label: dayjs(month).format('MM'),
-                    }))}
-                />
-            )}
+			{timeDimension === 'month' && (
+				<>
+					{monthList.length > 1 ? (
+						<SegmentedButtons
+							value={selectedMonth}
+							onValueChange={(month: string) => setSelectedMonth(month)}
+							buttons={monthList.map(month => ({
+								value: month,
+								label: dayjs(month).format('MM'),
+							}))}
+						/>
+					) : (
+						<Button mode="outlined">{monthList[0]}</Button>
+					)}
+				</>
+			)}
 			{timeDimension === 'year' && (
-                <SegmentedButtons
-                    value={selectedYear.toString()}
-                    onValueChange={(year: string) => setSelectedYear(year)}
-                    buttons={yearList.map(year => ({
-                        value: year.toString(),
-                        label: year.toString(),
-                    }))}
-                />
+				<>
+					{yearList.length > 1 ? (
+						<SegmentedButtons
+							value={selectedYear.toString()}
+							onValueChange={(year: string) => setSelectedYear(year)}
+							buttons={yearList.map(year => ({
+								value: year.toString(),
+								label: year.toString(),
+							}))}
+						/>
+					) : (
+						<Button mode="outlined">{yearList[0]}</Button>
+					)}
+				</>
 			)}
 		</Surface>
 	);

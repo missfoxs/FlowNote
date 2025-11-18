@@ -1,19 +1,19 @@
-import { Icon, Surface, Text } from 'react-native-paper';
+import { Icon, Surface, Text, TouchableRipple } from 'react-native-paper';
 import { useCategoryStore, useTransactionStore } from '../../store';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Transaction } from '../../type';
 import TimeDemension from './components/time-demension';
 import dayjs from 'dayjs';
+import { TransactionRecordCard } from '../home/components/TransactionRecord';
 
-type CategoryTransactions = Record<
-	string,
-	{
-		list: Transaction[];
-		total: number;
-		icon: string;
-	}
->;
+interface CategoryRecordDetail {
+	list: Transaction[];
+	total: number;
+	icon: string;
+}
+
+type CategoryTransactions = Record<string, CategoryRecordDetail>;
 
 function Statistics() {
 	const { transactions } = useTransactionStore();
@@ -24,6 +24,8 @@ function Statistics() {
 	const [yearList, setYearList] = useState<number[]>([]);
 	const [selectedMonth, setSelectedMonth] = useState<string>();
 	const [selectedYear, setSelectedYear] = useState<string>();
+	// 当前分类记录详情
+	const [currentCategoryRecordDetail, setCurrentCategoryRecordDetail] = useState<CategoryRecordDetail | null>(null);
 
 	useEffect(() => {
 		// 按时间过滤数据
@@ -91,6 +93,15 @@ function Statistics() {
 		setSelectedYear(dayjs().format('YYYY'));
 	}, [transactions]);
 
+	// 分类记录详情
+	const handleDetail = useCallback(
+		(categoryRecord: CategoryRecordDetail) => {
+			setCurrentCategoryRecordDetail(categoryRecord);
+		},
+		[setCurrentCategoryRecordDetail],
+	);
+
+	// 渲染分类记录
 	const renderRecord = useMemo(() => {
 		if (!categoryTransactions) return null;
 
@@ -99,18 +110,20 @@ function Statistics() {
 				return b[1].total - a[1].total;
 			})
 			.map(([categoryName, record]) => (
-				<Surface key={categoryName} style={styles.recordItem}>
-					<View style={styles.recordItemContent}>
-						<Icon source={record.icon} size={24} />
-						<Text style={styles.categoryName}>{categoryName}</Text>
-						{/* <ProgressBar progress={0.5} /> */}
-					</View>
-					<View style={styles.recordDetails}>
-						<Text>总金额: ¥{record.total}</Text>
-					</View>
-				</Surface>
+				<TouchableRipple key={categoryName} onPress={() => handleDetail(record)}>
+					<Surface style={styles.recordItem}>
+						<View style={styles.recordItemContent}>
+							<Icon source={record.icon} size={24} />
+							<Text style={styles.categoryName}>{categoryName}</Text>
+							{/* <ProgressBar progress={0.5} /> */}
+						</View>
+						<View style={styles.recordDetails}>
+							<Text>总金额: ¥{record.total}</Text>
+						</View>
+					</Surface>
+				</TouchableRipple>
 			));
-	}, [categoryTransactions]);
+	}, [categoryTransactions, handleDetail]);
 
 	return (
 		<View style={styles.container}>
@@ -126,6 +139,12 @@ function Statistics() {
 			/>
 			<ScrollView>
 				<View style={styles.record}>{renderRecord}</View>
+			</ScrollView>
+			<ScrollView>
+				{currentCategoryRecordDetail &&
+					currentCategoryRecordDetail.list.map(record => {
+						return <TransactionRecordCard key={record.id} record={record} />;
+					})}
 			</ScrollView>
 		</View>
 	);

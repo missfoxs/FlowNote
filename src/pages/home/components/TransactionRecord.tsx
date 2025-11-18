@@ -10,6 +10,49 @@ interface TransactionRecordProps {
 	categories: Category[];
 }
 
+export const TransactionRecordCard = ({
+	record,
+	category,
+	onDelete,
+}: {
+	record: Transaction;
+	category?: Category;
+	onDelete?: (record: Transaction) => void;
+}) => {
+	return (
+		<List.Item
+			title={record.category}
+			description={record.description}
+			key={record.id}
+			left={() =>
+				category ? (
+					<Avatar.Icon
+						icon={category.icon}
+						size={35}
+						style={{
+							backgroundColor: category.color,
+						}}
+					/>
+				) : null
+			}
+			containerStyle={styles.container}
+			right={() => (
+				<View style={styles.rightCom}>
+					<Text style={{ color: record.mode === 'expense' ? '#c62828' : '#2e7d32' }}>
+						{record.mode === 'expense' ? '-' : '+'}
+						{record.amount}
+					</Text>
+					{onDelete && (
+						<TouchableRipple onPress={() => onDelete(record)}>
+							<Icon source={'delete'} size={20} color={'#c62828'} />
+						</TouchableRipple>
+					)}
+				</View>
+			)}
+		/>
+	);
+};
+
 export default function TransactionRecord({ recordByDay, onDelete, categories }: TransactionRecordProps) {
 	const { day, records, exposeTotal } = recordByDay;
 
@@ -20,36 +63,7 @@ export default function TransactionRecord({ recordByDay, onDelete, categories }:
 				{records.map(record => {
 					const category = categories.find(item => item.id === record.category || item.name === record.category);
 
-					return (
-						<List.Item
-							title={record.category}
-							description={record.description}
-							key={record.id}
-							left={() =>
-								category ? (
-									<Avatar.Icon
-										icon={category.icon}
-										size={35}
-										style={{
-											backgroundColor: category.color,
-										}}
-									/>
-								) : null
-							}
-							containerStyle={styles.container}
-							right={() => (
-								<View style={styles.rightCom}>
-									<Text style={{ color: record.mode === 'expense' ? '#c62828' : '#2e7d32' }}>
-										{record.mode === 'expense' ? '-' : '+'}
-										{record.amount}
-									</Text>
-									<TouchableRipple onPress={() => onDelete(record)}>
-										<Icon source={'delete'} size={20} color={'#c62828'} />
-									</TouchableRipple>
-								</View>
-							)}
-						/>
-					);
+					return <TransactionRecordCard key={record.id} record={record} category={category} onDelete={onDelete} />;
 				})}
 			</List.Section>
 		</Surface>
