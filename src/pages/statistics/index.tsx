@@ -2,16 +2,12 @@ import { Icon, Surface, Text, TouchableRipple } from 'react-native-paper';
 import { useCategoryStore, useTransactionStore } from '../../store';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Transaction } from '../../type';
+import { CategoryRecordDetail } from '../../type';
 import TimeDemension from './components/time-demension';
 import dayjs from 'dayjs';
-import { TransactionRecordCard } from '../home/components/TransactionRecord';
-
-interface CategoryRecordDetail {
-	list: Transaction[];
-	total: number;
-	icon: string;
-}
+import { useGlobalStore } from '../../store/global';
+import { Router_Name } from '../../routes';
+import { useNavigation } from '@react-navigation/native';
 
 type CategoryTransactions = Record<string, CategoryRecordDetail>;
 
@@ -24,8 +20,9 @@ function Statistics() {
 	const [yearList, setYearList] = useState<number[]>([]);
 	const [selectedMonth, setSelectedMonth] = useState<string>();
 	const [selectedYear, setSelectedYear] = useState<string>();
-	// 当前分类记录详情
-	const [currentCategoryRecordDetail, setCurrentCategoryRecordDetail] = useState<CategoryRecordDetail | null>(null);
+
+	const { setCurrentCategoryRecordDetail } = useGlobalStore();
+	const { navigate } = useNavigation();
 
 	useEffect(() => {
 		// 按时间过滤数据
@@ -42,7 +39,7 @@ function Statistics() {
 		filteredRecord.forEach(record => {
 			const vals = map[record.category];
 			if (vals) {
-				map[record.category] = { ...vals, total: vals.total + record.amount };
+				map[record.category] = { ...vals, total: vals.total + record.amount, list: [...vals.list, record] };
 			} else {
 				const catagory = categories.find(item => item.name === record.category);
 
@@ -97,8 +94,9 @@ function Statistics() {
 	const handleDetail = useCallback(
 		(categoryRecord: CategoryRecordDetail) => {
 			setCurrentCategoryRecordDetail(categoryRecord);
+			navigate(Router_Name.CategoryRecordDetail as never);
 		},
-		[setCurrentCategoryRecordDetail],
+		[setCurrentCategoryRecordDetail, navigate],
 	);
 
 	// 渲染分类记录
@@ -139,12 +137,6 @@ function Statistics() {
 			/>
 			<ScrollView>
 				<View style={styles.record}>{renderRecord}</View>
-			</ScrollView>
-			<ScrollView>
-				{currentCategoryRecordDetail &&
-					currentCategoryRecordDetail.list.map(record => {
-						return <TransactionRecordCard key={record.id} record={record} />;
-					})}
 			</ScrollView>
 		</View>
 	);

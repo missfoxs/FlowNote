@@ -19,3 +19,9 @@ export type Transaction = {
 };
 
 export type ImportTransaction = Partial<Transaction & { category?: string; description?: string }>;
+
+export interface CategoryRecordDetail {
+	list: Transaction[];
+	total: number;
+	icon: string;
+}

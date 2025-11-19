@@ -16,6 +16,8 @@ function Home() {
 
 	const [dayRecords, setDayRecords] = useState<{ day: string; records: Transaction[]; exposeTotal: number }[]>([]);
 
+	const [monthExposeTotal, setMonthExposeTotal] = useState(0);
+
 	const { transactions, deleteTransaction } = useTransactionStore();
 
 	const { categories } = useCategoryStore();
@@ -62,14 +64,14 @@ function Home() {
 			exposeTotal: records.reduce((acc, cur) => acc + (cur.mode === 'expense' ? cur.amount : 0), 0),
 		}));
 
-		console.log(_dayRecords);
+		setMonthExposeTotal(_dayRecords.reduce((acc, cur) => acc + cur.exposeTotal, 0));
 
 		setDayRecords(_dayRecords);
 	}, [currentMonth, transactions]);
 
 	return (
 		<View style={[styles.container]}>
-			<Overview currentMonth={currentMonth} />
+			<Overview currentMonth={currentMonth} monthExposeTotal={monthExposeTotal} />
 			<FlatList
 				data={dayRecords}
 				keyExtractor={item => item.day.toString()}
