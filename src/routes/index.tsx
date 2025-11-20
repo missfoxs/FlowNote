@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../pages/home';
 import CategoryScreen from '../pages/category';
 import Statistics from '../pages/statistics';
-// import User from '../pages/user';
+import User from '../pages/user';
 import { Icon } from 'react-native-paper';
 import TransactionRecordDetail from '../pages/transaction-record-detail';
 
@@ -46,13 +46,13 @@ const StatisticsStackNavigator = () => {
 };
 
 // 个人中心
-// const UserStackNavigator = () => {
-// 	return (
-// 		<Stack.Navigator>
-// 			<Stack.Screen name={Router_Name.User} component={User} options={{ headerShown: false }} />
-// 		</Stack.Navigator>
-// 	);
-// };
+const UserStackNavigator = () => {
+	return (
+		<Stack.Navigator>
+			<Stack.Screen name={Router_Name.User} component={User} options={{ headerShown: false }} />
+		</Stack.Navigator>
+	);
+};
 // 主 Tab 导航
 export default function Entry() {
 	return (
@@ -80,14 +80,14 @@ export default function Entry() {
 						tabBarIcon: ({ color, size }) => <Icon source="chart-bar" color={color} size={size} />,
 					}}
 				/>
-				{/* <Tab.Screen
+				<Tab.Screen
 					name={Router_Name.UserTab}
 					component={UserStackNavigator}
 					options={{
 						title: '个人中心',
 						tabBarIcon: ({ color, size }) => <Icon source="account" color={color} size={size} />,
 					}}
-				/> */}
+				/>
 			</Tab.Navigator>
 		</NavigationContainer>
 	);
