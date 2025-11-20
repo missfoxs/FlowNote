@@ -1,7 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import { Surface, Text } from 'react-native-paper';
-// import { useTransactionStore } from '../../../store';
-// import { Transaction } from '../../../type';
+import { Card, Text } from 'react-native-paper';
+import dayjs from 'dayjs';
 
 interface OverviewProps {
 	currentMonth: string;
@@ -9,36 +8,62 @@ interface OverviewProps {
 }
 
 function Overview({ currentMonth, monthExposeTotal }: OverviewProps) {
-	// const { addTransactionBatch, clearTransactions } = useTransactionStore();
-
-	// const handleImport = async () => {
-	// 	const data = await import('../../../data/account_data_2025-11-10.json');
-	// 	addTransactionBatch(data.default.transactions as unknown as Transaction[]);
-	// };
+	const formattedMonth = dayjs(currentMonth).format('YYYY年MM月');
 
 	return (
-		<Surface style={styles.overview}>
-			<View>
-				<Text>{currentMonth}</Text>
-				<Text>本月支出¥{monthExposeTotal}</Text>
+		<Card mode="elevated" style={styles.overviewCard} contentStyle={styles.cardContent}>
+			<View style={styles.overviewContainer}>
+				<View style={styles.monthContainer}>
+					<Text variant="titleMedium" style={styles.monthText}>
+						{formattedMonth}
+					</Text>
+				</View>
+				<View style={styles.amountContainer}>
+					<Text variant="bodySmall" style={styles.amountLabel}>
+						本月支出
+					</Text>
+					<Text variant="headlineMedium" style={styles.amountText}>
+						¥{monthExposeTotal.toFixed(2)}
+					</Text>
+				</View>
 			</View>
-			{/* <Button onPress={() => clearTransactions()}>Clear</Button>
-			<View>
-				<IconButton icon={'import'} onPress={handleImport} />
-			</View> */}
-		</Surface>
+		</Card>
 	);
 }
 
 export default Overview;
 
 const styles = StyleSheet.create({
-	overview: {
+	overviewCard: {
+		marginHorizontal: 16,
+		marginTop: 16,
+		marginBottom: 8,
+	},
+	cardContent: {
+		padding: 20,
+	},
+	overviewContainer: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		paddingHorizontal: 24,
-		paddingVertical: 24,
-		marginBottom: 24,
+	},
+	monthContainer: {
+		flex: 1,
+	},
+	monthText: {
+		fontSize: 16,
+		opacity: 0.7,
+	},
+	amountContainer: {
+		alignItems: 'flex-end',
+	},
+	amountText: {
+		fontSize: 32,
+		fontWeight: 'bold',
+		lineHeight: 40,
+	},
+	amountLabel: {
+		marginTop: 4,
+		opacity: 0.6,
 	},
 });

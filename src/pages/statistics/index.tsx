@@ -1,4 +1,4 @@
-import { Icon, Surface, Text, TouchableRipple } from 'react-native-paper';
+import { Card, Icon, Text, TouchableRipple } from 'react-native-paper';
 import { useCategoryStore, useTransactionStore } from '../../store';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -103,24 +103,39 @@ function Statistics() {
 	const renderRecord = useMemo(() => {
 		if (!categoryTransactions) return null;
 
-		return Object.entries(categoryTransactions)
-			.sort((a, b) => {
-				return b[1].total - a[1].total;
-			})
-			.map(([categoryName, record]) => (
-				<TouchableRipple key={categoryName} onPress={() => handleDetail(record)}>
-					<Surface style={styles.recordItem}>
+		const sortedEntries = Object.entries(categoryTransactions).sort((a, b) => {
+			return b[1].total - a[1].total;
+		});
+
+		if (sortedEntries.length === 0) {
+			return (
+				<View style={styles.emptyContainer}>
+					<Text variant="bodyLarge" style={styles.emptyText}>
+						暂无统计数据
+					</Text>
+				</View>
+			);
+		}
+
+		return sortedEntries.map(([categoryName, record]) => (
+			<TouchableRipple key={categoryName} onPress={() => handleDetail(record)}>
+				<Card mode="elevated" style={styles.recordCard} contentStyle={styles.cardContent}>
+					<View style={styles.recordItemWrapper}>
 						<View style={styles.recordItemContent}>
 							<Icon source={record.icon} size={24} />
-							<Text style={styles.categoryName}>{categoryName}</Text>
-							{/* <ProgressBar progress={0.5} /> */}
+							<Text variant="bodyLarge" style={styles.categoryName}>
+								{categoryName}
+							</Text>
 						</View>
 						<View style={styles.recordDetails}>
-							<Text>总金额: ¥{record.total}</Text>
+							<Text variant="bodyLarge" style={styles.amountText}>
+								总金额: ¥{record.total.toFixed(2)}
+							</Text>
 						</View>
-					</Surface>
-				</TouchableRipple>
-			));
+					</View>
+				</Card>
+			</TouchableRipple>
+		));
 	}, [categoryTransactions, handleDetail]);
 
 	return (
@@ -135,8 +150,8 @@ function Statistics() {
 				selectedYear={selectedYear || ''}
 				setSelectedYear={setSelectedYear}
 			/>
-			<ScrollView>
-				<View style={styles.record}>{renderRecord}</View>
+			<ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
+				{renderRecord}
 			</ScrollView>
 		</View>
 	);
@@ -147,27 +162,53 @@ export default Statistics;
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		backgroundColor: '#f5f5f5',
 	},
-	record: {
+	scrollView: {
+		flex: 1,
+	},
+	scrollContent: {
+		padding: 16,
 		gap: 12,
-		margin: 12,
+		paddingBottom: 24,
 	},
-	recordItem: {
+	recordCard: {
+		marginBottom: 0,
+	},
+	cardContent: {
+		paddingVertical: 12,
+		paddingHorizontal: 16,
+	},
+	recordItemWrapper: {
 		flexDirection: 'row',
-		justifyContent: 'space-between',
 		alignItems: 'center',
-		padding: 12,
-		borderRadius: 8,
-	},
-	categoryName: {
-		fontSize: 14,
-	},
-	recordDetails: {
-		alignItems: 'flex-end',
+		justifyContent: 'space-between',
 	},
 	recordItemContent: {
 		flexDirection: 'row',
 		alignItems: 'center',
-		gap: 8,
+		gap: 10,
+		flex: 1,
+	},
+	categoryName: {
+		fontSize: 15,
+		fontWeight: '500',
+	},
+	recordDetails: {
+		alignItems: 'flex-end',
+		marginLeft: 12,
+	},
+	amountText: {
+		fontSize: 15,
+		fontWeight: '600',
+	},
+	emptyContainer: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		paddingTop: 100,
+	},
+	emptyText: {
+		opacity: 0.5,
 	},
 });

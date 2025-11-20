@@ -70,7 +70,7 @@ function Home() {
 	}, [currentMonth, transactions]);
 
 	return (
-		<View style={[styles.container]}>
+		<View style={styles.container}>
 			<Overview currentMonth={currentMonth} monthExposeTotal={monthExposeTotal} />
 			<FlatList
 				data={dayRecords}
@@ -82,7 +82,14 @@ function Home() {
 				refreshing={refreshing}
 				onEndReached={handleEndReached}
 				onEndReachedThreshold={0.3}
-				ListEmptyComponent={<Text>暂无交易记录</Text>}
+				contentContainerStyle={styles.listContent}
+				ListEmptyComponent={
+					<View style={styles.emptyContainer}>
+						<Text variant="bodyLarge" style={styles.emptyText}>
+							暂无交易记录
+						</Text>
+					</View>
+				}
 			/>
 			<FabPlus onPress={() => navigate('Category' as never)} />
 		</View>
@@ -94,5 +101,18 @@ export default Home;
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		backgroundColor: '#f5f5f5',
+	},
+	listContent: {
+		paddingBottom: 16,
+	},
+	emptyContainer: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		paddingTop: 100,
+	},
+	emptyText: {
+		opacity: 0.5,
 	},
 });
