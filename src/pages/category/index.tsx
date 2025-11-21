@@ -42,6 +42,11 @@ function CategoryCom() {
 		navigate(Router_Name.Home as never);
 	};
 
+	const handleCancelKeyboard = () => {
+		setShowKeyboard(false);
+		currentCategory.current = null;
+	};
+
 	return (
 		<View style={styles.categoryContainer}>
 			<Surface mode="flat" style={styles.surface}>
@@ -63,7 +68,7 @@ function CategoryCom() {
 			{/* 使用Drawer的底部抽屉效果 */}
 			{showKeyboard && (
 				<Drawer.Section style={styles.drawerContainer}>
-					<CustomKeyboard onClose={handleCloseKeyboard} />
+					<CustomKeyboard onClose={handleCloseKeyboard} onCancel={handleCancelKeyboard} />
 				</Drawer.Section>
 			)}
 		</View>
