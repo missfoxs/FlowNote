@@ -1,9 +1,11 @@
-import { ScrollView, Share, StyleSheet, Alert } from 'react-native';
+import { ScrollView, StyleSheet, Alert } from 'react-native';
 import { Avatar, Button, Card, Dialog, Surface, Text, TextInput } from 'react-native-paper';
 import { launchCamera, launchImageLibrary, MediaType } from 'react-native-image-picker';
 import { useState } from 'react';
 import { useTransactionStore, useCategoryStore } from '../../store';
 import dayjs from 'dayjs';
+import RNFS from 'react-native-fs';
+import { pick } from '@react-native-documents/picker';
 
 function User() {
 	const [selectedImage, setSelectedImage] = useState<string>('');
@@ -70,10 +72,11 @@ function User() {
 
 			const jsonString = JSON.stringify(exportData, null, 2);
 
-			await Share.share({
-				message: jsonString,
-				title: '导出数据',
-			});
+			const filePath = RNFS.DocumentDirectoryPath + `/export_data_${dayjs().format('YYYY-MM-DD_HH-mm-ss')}.json`;
+
+			await RNFS.writeFile(filePath, jsonString);
+
+			Alert.alert('导出成功', `导出数据已保存到 ${filePath}`);
 		} catch (error) {
 			Alert.alert('导出失败', '导出数据时发生错误');
 			console.error('Export error:', error);
@@ -81,8 +84,43 @@ function User() {
 	};
 
 	// 导入数据
-	const handleImport = () => {
-		setImportDialogVisible(true);
+	const handleImport = async () => {
+		// setImportDialogVisible(true);
+		try {
+			const results = await pick({
+				type: ['application/json', 'text/csv'],
+				allowMultiSelection: false,
+				mode: 'import',
+			});
+
+			if (results.length === 0) {
+				return;
+			}
+
+			const file = results[0];
+			const fileContent = await RNFS.readFile(file.uri, 'utf8');
+			const data = JSON.parse(fileContent);
+
+			console.log(data);
+
+			// 如果数据格式正确，直接导入
+			if (data.transactions && Array.isArray(data.transactions)) {
+				const transactionsToImport = data.transactions.map((t: any) => ({
+					...t,
+					date: dayjs(t.date),
+				}));
+				addTransactionBatch(transactionsToImport);
+				Alert.alert('导入成功', `成功导入 ${transactionsToImport.length} 条交易记录`);
+			} else {
+				Alert.alert('导入失败', '数据格式不正确');
+			}
+		} catch (error: any) {
+			// 用户取消选择时，错误代码为 'DOCUMENT_PICKER_CANCELED'
+			if (error?.code !== 'DOCUMENT_PICKER_CANCELED') {
+				Alert.alert('导入失败', '导入数据时发生错误');
+				console.error('Import error:', error);
+			}
+		}
 	};
 
 	// 确认导入
